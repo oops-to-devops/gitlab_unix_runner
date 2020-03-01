@@ -1,6 +1,6 @@
 namespace: "softasap"
-name: "oops_box"
-description: wraps sa_traefik and sa_docker to prepare hosts from traefik_box group for further provisioning
+name: "gitlabrunner_box"
+description: wraps sa_gitlab_runner and sa_docker to prepare hosts from gitlabrunner_box group for further provisioning
 version: "0.0.1"
 readme: "Readme.md"
 authors:
@@ -10,7 +10,7 @@ license:
     - "MIT"
 tags:
     - softasap
-repository: "https://github.com/oops-to-devops/oops_box_template"
-documentation: "https://github.com/oops-to-devops/oops_box_template/blob/master/README.md"
+repository: "https://github.com/oops-to-devops/gitlab_unix_runner"
+documentation: "https://github.com/oops-to-devops/gitlab_unix_runner/blob/master/README.md"
 homepage: "https://www.softasap.com"
 issues: "https://github.com/orgs/oops-to-devops/projects/1"

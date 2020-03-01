@@ -65,7 +65,7 @@ platforms:
       memory: 4096
       cpus: 2
       groups:
-        - oops_box
+        - gitlabrunner_box
       # optional - box is accesible from your real network
 #      interfaces:
 #        - network_name: private_network

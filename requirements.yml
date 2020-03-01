@@ -1,2 +1,19 @@
 - src: softasap.sa-include
   name: sa_include
+- src: softasap.sa-node-nvm
+  name: sa-node-nvm
+- src: softasap.sa-python
+  name: sa-python
+- src: softasap.sa-python3
+  name: sa-python3
+- src: softasap.sa-docker
+  name: sa-docker
+- src: softasap.sa-go
+  name: sa-go
+- src: softasap.sa_go_gimme
+  name: sa-go-gimme
+- src: softasap.sa-ruby
+  name: sa-ruby
+- src: softasap.sa_gitlab_runner
+  name: sa_gitlab_runner
+

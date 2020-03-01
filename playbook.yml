@@ -1,5 +1,5 @@
 ---
-- hosts: oops_box
+- hosts: gitlabrunner_box
   gather_facts: False
 
   vars:
@@ -36,8 +36,64 @@
       when: common_pretasks_exists.stat.exists == true
       tags: always
 
-#  roles:
-# Uncomment if host is not yet configured for automatic updates
+  roles:
+    #  - {
+    #     role: "sa-docker",
+    #     tags: ["create", "sa_docker"]
+    #    }
+    #  - {
+    #      role: "sa-python",
+    #      tags: ["create"]
+    #    }
+    #  - {
+    #      role: "sa-python3",
+    #      tags: ["create"]
+    #    }
+    #  - {
+    #      role: "sa-go",
+    #      go_version: "1.11.5",
+    #      tags: ["create"]
+    #    }
+    #  - {
+    #      role: "sa-go-gimme",
+    #      go_version: "1.11.5",
+    #      tags: ["create"]
+    #    }
+    #  - {
+    #      role: "sa-ruby",
+    #      ruby_install_setsystem: false,
+    #      ruby_version: 2.4.4,
+
+    #      option_install_sampleapp: false,
+    #      option_install_nginx_passenger: false,
+    #      tags: ["create"]
+    #    }
+     - {
+         role: "sa_gitlab_runner",
+         gitlab_groups: ["docker"],
+         gitlab_runner_concurrent: '{{ box_gitlab_runner_concurrent }}',
+         # GitLab coordinator URL
+         gitlab_runner_coordinator_url: '{{ box_gitlab_runner_coordinator_url }}',
+         # GitLab registration token
+         gitlab_runner_registration_token: '{{ box_gitlab_runner_registration_token }}',
+         # Runner description
+         gitlab_runner_description: '{{ box_gitlab_runner_description }}',
+         # Runner executor
+         gitlab_runner_executor: '{{ box_gitlab_runner_executor }}', # docker
+         # Default Docker image
+         gitlab_runner_docker_image: '{{ box_gitlab_runner_docker_image }}',
+         # Runner tags
+         gitlab_runner_tags: "{{ box_gitlab_runner_tags }}"
+       }
+     - {
+         role: "sa-node-nvm",
+         nvm_version: "0.31.2",
+         nodejs_version: "0.12",
+         deploy_user: "gitlab-runner",
+         option_nodejs_install_with_nvm: false,
+         tags: ["create"]
+       }
+
 
   tasks:
 
